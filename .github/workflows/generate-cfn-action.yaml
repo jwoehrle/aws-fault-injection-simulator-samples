@@ -25,7 +25,7 @@ jobs:
           git config --local user.email "github_action@example.com"
           git config --local user.name "GitHub Actions"
           git add ./cfn_fis_demos.yaml
-          git commit -m "Generate cfn_fis_demos.yaml via cdk synth"
+          git diff-index --quiet HEAD || git commit -m "Generate cfn_fis_demos.yaml via cdk synth"
           git remote add github "https://${{secrets.GH_TOKEN}}@github.com/${{ github.repository }}.git"
           git push github
 
